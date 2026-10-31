@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>At Your Door Painting & Home Renovation | Vibrant Doorstep Painting Services</title>
+  <meta name="description" content="Professional on-site home painting & renovation services right at your doorstep. Flawless interiors, cabinet spraying, exterior makeovers with zero mess.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              coral: '#FF533D',
+              yellow: '#FFB800',
+              cyan: '#00C6FF',
+              blue: '#0072FF',
+              purple: '#7928CA',
+              green: '#10B981',
+              pink: '#FF0080',
+              charcoal: '#0F172A',
+              slate: '#1E293B',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand-coral selection:text-white">
+
+  <!-- Floating Background Blobs -->
+  <div class="bg-blob-1"></div>
+  <div class="bg-blob-2"></div>
+  <div class="bg-blob-3"></div>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BANNER
+       ========================================================================== -->
+  <div class="bg-gradient-to-r from-brand-coral via-brand-yellow to-brand-cyan text-slate-900 py-2.5 px-4 text-xs md:text-sm font-semibold text-center relative z-40 shadow-sm flex items-center justify-center flex-wrap gap-2">
+    <span class="inline-flex items-center gap-1.5 bg-white/90 px-2.5 py-0.5 rounded-full text-slate-900 shadow-sm text-xs uppercase tracking-wider font-extrabold">
+      <span class="w-2 h-2 rounded-full bg-brand-coral animate-ping"></span> Doorstep Service
+    </span>
+    <span>🚚 We bring 300+ real color swatches & master painters straight to your door!</span>
+    <a href="tel:+18005557246" class="underline hover:text-white transition-colors ml-1 font-bold">Call (800) 555-PAINT</a>
+  </div>
+
+  <!-- ==========================================================================
+       STICKY NAVBAR
+       ========================================================================== -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-coral via-brand-yellow to-brand-purple flex items-center justify-center text-white shadow-lg shadow-brand-coral/25 group-hover:rotate-12 transition-transform duration-300">
+          <i data-lucide="paint-roller" class="w-6 h-6 stroke-[2.2]"></i>
+        </div>
+        <div>
+          <span class="font-heading font-black text-xl tracking-tight text-slate-900 flex items-center gap-1">
+            AT YOUR DOOR <span class="text-brand-coral">.</span>
+          </span>
+          <span class="block text-[11px] font-bold tracking-widest text-slate-400 uppercase -mt-1">
+            Painting & Home Renovation
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#services" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-4 h-4 text-brand-yellow"></i> Services
+        </a>
+        <a href="#colorizer" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <i data-lucide="palette" class="w-4 h-4 text-brand-cyan"></i> Live Colorizer
+        </a>
+        <a href="#transformations" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <i data-lucide="split-square-vertical" class="w-4 h-4 text-brand-purple"></i> Before & After
+        </a>
+        <a href="#calculator" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <i data-lucide="calculator" class="w-4 h-4 text-brand-green"></i> Cost Estimator
+        </a>
+        <a href="#reviews" class="hover:text-brand-coral transition-colors">Reviews</a>
+      </nav>
+
+      <!-- Right CTAs & Splatter Toggle -->
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- Interactive Splatter Mode Toggle -->
+        <button id="toggle-splat-mode" title="Toggle colorful paint splashes on click" class="px-3 py-1.5 rounded-full text-xs font-bold border border-slate-200 bg-amber-50 text-amber-800 hover:bg-amber-100 transition-colors flex items-center shadow-sm">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping mr-2"></span> Splatter FX: ON
+        </button>
+
+        <button class="open-booking-modal-btn fun-btn-primary text-white text-sm font-bold px-5 py-2.5 rounded-full flex items-center gap-2">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Free Doorstep Quote</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+      <a href="#services" class="mobile-nav-link block font-bold text-slate-700 hover:text-brand-coral">Our Painting Services</a>
+      <a href="#colorizer" class="mobile-nav-link block font-bold text-slate-700 hover:text-brand-coral">🎨 Interactive Room Colorizer</a>
+      <a href="#transformations" class="mobile-nav-link block font-bold text-slate-700 hover:text-brand-coral">✨ Before & After Comparison</a>
+      <a href="#calculator" class="mobile-nav-link block font-bold text-slate-700 hover:text-brand-coral">📐 Instant Cost Calculator</a>
+      <a href="#reviews" class="mobile-nav-link block font-bold text-slate-700 hover:text-brand-coral">⭐ Homeowner Reviews</a>
+      <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
+        <button class="open-booking-modal-btn w-full fun-btn-primary text-white py-3 rounded-xl font-bold text-center">
+          Schedule Doorstep Visit
+        </button>
+        <a href="tel:+18005557246" class="w-full py-3 rounded-xl font-bold text-center border-2 border-slate-200 text-slate-800">
+          📞 Call (800) 555-PAINT
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION WITH ANIMATED ELEMENTS
+       ========================================================================== -->
+  <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden">
+    <!-- Playful SVG Drips along top -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Fun Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-white text-xs sm:text-sm font-bold shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-yellow animate-pulse"></span>
+            <span>🏡 Doorstep Home Renovation & Painting Service</span>
+            <span class="bg-brand-coral text-white text-[10px] px-2 py-0.5 rounded-full font-black uppercase tracking-wider">Fast & Fun</span>
+          </div>
+
+          <!-- Main Bold Headline -->
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1]">
+            We Bring Fresh Paint & Colors 
+            <span class="block mt-1 gradient-text-rainbow">Right To Your Doorstep!</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal">
+            No endless store trips, no paint splatters on your rugs. We show up at your home with designer color swatches, laser prep, low-VOC premium coatings, and master painters to turn tired rooms into vibrant works of art!
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <button class="open-booking-modal-btn fun-btn-primary text-white font-extrabold px-8 py-4 rounded-2xl text-base shadow-xl flex items-center justify-center gap-3 group">
+              <i data-lucide="sparkles" class="w-5 h-5 group-hover:rotate-45 transition-transform"></i>
+              <span>Book Doorstep Painter</span>
+            </button>
+            <a href="#colorizer" class="fun-btn-secondary font-bold px-7 py-4 rounded-2xl text-base text-slate-800 flex items-center justify-center gap-2">
+              <i data-lucide="palette" class="w-5 h-5 text-brand-coral"></i>
+              <span>Try Live Colorizer</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges with Micro-Icons -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-100">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700">Zero Mess Guarantee</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700">1-Day Room Turnaround</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center">
+                <i data-lucide="leaf" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700">Kid & Pet-Safe Paint</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center">
+                <i data-lucide="award" class="w-4 h-4"></i>
+              </div>
+              <span class="text-xs font-bold text-slate-700">3-Yr Touchup Warranty</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Interactive Graphic -->
+        <div class="lg:col-span-5 relative">
+          
+          <!-- Decorative Paint Splash Background SVG -->
+          <div class="absolute -top-12 -right-8 w-80 h-80 opacity-70 pointer-events-none animate-float">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#FFB800" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.5,90,-16.3,88.5,-0.9C86.9,14.5,81.2,29,72.9,41.9C64.6,54.8,53.7,66.1,40.6,73.5C27.5,80.9,12.3,84.4,-2.2,88.2C-16.7,92,-33.4,96.1,-46.6,89.5C-59.8,82.9,-69.5,65.6,-76.5,49.2C-83.5,32.8,-87.8,17.4,-88.4,1.4C-89,-14.6,-85.9,-31.2,-77.8,-45.3C-69.7,-59.4,-56.6,-71,-42,-77.8C-27.4,-84.6,-13.7,-86.6,0.8,-88C15.3,-89.4,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+          </div>
+
+          <!-- Hero Main Showcase Card -->
+          <div class="relative bg-white/85 backdrop-blur-xl border-4 border-slate-900 rounded-3xl p-6 shadow-2xl space-y-6">
+            
+            <!-- Card Header Ribbon -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-3.5 h-3.5 rounded-full bg-brand-coral animate-ping"></span>
+                <span class="text-xs font-black uppercase tracking-wider text-slate-800">Live Van En Route</span>
+              </div>
+              <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full">
+                Now Serving Your Area
+              </span>
+            </div>
+
+            <!-- Visual Paint Swatch Comparison Feature -->
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 group shadow-inner">
+              <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="Master House Painter applying clean roller coat" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Floating Pill Over Image -->
+              <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-lg flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-yellow to-brand-coral flex items-center justify-center text-white">
+                    <i data-lucide="brush" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-black text-slate-900">Doorstep Painting Crew #04</p>
+                    <p class="text-[11px] font-semibold text-slate-500">2 Master Painters • 1 Day Job</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-extrabold text-brand-coral bg-brand-coral/10 px-2 py-1 rounded-md">Verified 5.0 ★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Swatch Picker Strip inside Card -->
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+              <p class="text-xs font-extrabold text-slate-700 mb-2 flex items-center justify-between">
+                <span>Popular Doorstep Shades Today:</span>
+                <span class="text-[10px] text-brand-coral uppercase font-black">Click To Test Below</span>
+              </p>
+              <div class="flex items-center justify-between gap-1">
+                <div class="w-8 h-8 rounded-xl bg-[#FF533D] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Sunset Coral"></div>
+                <div class="w-8 h-8 rounded-xl bg-[#00C6FF] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Ocean Lagoon"></div>
+                <div class="w-8 h-8 rounded-xl bg-[#10B981] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Sage Haven"></div>
+                <div class="w-8 h-8 rounded-xl bg-[#FFB800] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Sunshine Mimosa"></div>
+                <div class="w-8 h-8 rounded-xl bg-[#7928CA] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Royalty Purple"></div>
+                <div class="w-8 h-8 rounded-xl bg-[#1E293B] shadow-md border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="Charcoal Velvet"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Floating Quote Pill -->
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600 bg-amber-50/70 p-3 rounded-xl border border-amber-200/60">
+              <span class="flex items-center gap-1.5 text-amber-900">
+                <i data-lucide="sparkle" class="w-4 h-4 text-amber-500 fill-amber-500"></i>
+                "Job done in 6 hours, floors spotless!"
+              </span>
+              <span class="text-slate-400 font-medium">— Sarah M., Downtown</span>
+            </div>
+
+          </div>
+
+          <!-- Floating Paint Can Badge -->
+          <div class="absolute -bottom-6 -left-6 bg-slate-900 text-white p-4 rounded-2xl shadow-2xl flex items-center gap-3 border-2 border-white animate-float-delayed">
+            <div class="w-10 h-10 rounded-xl bg-brand-yellow flex items-center justify-center text-slate-950 font-black text-xl">
+              🎨
+            </div>
+            <div>
+              <p class="text-xs font-black uppercase tracking-wider text-brand-yellow">100% In-Home</p>
+              <p class="text-sm font-extrabold">Renovation & Paint</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION: "WHAT WE ACTUALLY DO" (CLARIFYING JOB VS SERVICES)
+       ========================================================================== -->
+  <section class="py-14 bg-slate-50 border-y border-slate-200/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl p-8 lg:p-10 border-2 border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <div class="md:col-span-5 space-y-3">
+            <span class="text-xs font-black uppercase tracking-widest text-brand-coral bg-brand-coral/10 px-3 py-1 rounded-full">
+              Doorstep Service Model
+            </span>
+            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
+              What Is A "Doorstep Painting Service"?
+            </h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Unlike a simple one-off gig, our complete doorstep service means <strong>we come to your home, handle every bit of renovation prep</strong> (moving heavy furniture, masking floors, plastering drywall dents), apply master coats, and leave your home spotless the same day!
+            </p>
+          </div>
+
+          <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover:border-brand-coral transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-brand-coral/10 text-brand-coral flex items-center justify-center mb-3">
+                <i data-lucide="home" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-heading font-extrabold text-slate-900 text-sm mb-1">Ghar Par Aakar Kaam</h3>
+              <p class="text-xs text-slate-500 leading-normal">
+                No need to take time off or haul heavy buckets. Our mobile paint workshop parks right outside your door.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover:border-brand-yellow transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow/15 text-amber-700 flex items-center justify-center mb-3">
+                <i data-lucide="wrench" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-heading font-extrabold text-slate-900 text-sm mb-1">Renovation Prep</h3>
+              <p class="text-xs text-slate-500 leading-normal">
+                Patching cracks, sanding nail holes, smoothing uneven textures, and sealing water stains prior to painting.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover:border-brand-cyan transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center mb-3">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-heading font-extrabold text-slate-900 text-sm mb-1">Zero Mess Finished</h3>
+              <p class="text-xs text-slate-500 leading-normal">
+                We remove every tape strip, vacuum drop dust, replace furniture, and inspect every square inch with you.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE ROOM COLORIZER STUDIO (SUPER FUN!)
+       ========================================================================== -->
+  <section id="colorizer" class="py-20 lg:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-yellow/20 text-amber-900 text-xs font-black uppercase tracking-wider">
+          <i data-lucide="wand-2" class="w-4 h-4 text-brand-yellow"></i> Interactive Color Studio
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Test Paint Colors In Real-Time
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Click any paint chip below or pick your own custom shade to watch our virtual paint roller transform the room!
+        </p>
+      </div>
+
+      <!-- Main Visualizer Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Interactive Room Canvas & SVG Mockup (8 Cols) -->
+        <div class="lg:col-span-8">
+          <div class="room-canvas-container border-4 border-slate-900 relative">
+            
+            <!-- Animated Roller Sweep Overlay -->
+            <div id="roller-sweep-overlay" class="roller-sweep-overlay bg-brand-coral"></div>
+
+            <!-- Simulated Room Illustration / Graphic with Dynamic Accent Wall -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden flex flex-col justify-end">
+              
+              <!-- Dynamic Paint Accent Wall (The Element that changes color!) -->
+              <div id="room-wall-element" class="room-wall-layer absolute inset-0 bg-[#FF533D] z-0">
+                <!-- Subtle Wall Texture / Light Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/10 pointer-events-none"></div>
+              </div>
+
+              <!-- Foreground Living Room Furniture Layer (SVG + Clean Graphic Shapes) -->
+              <div class="relative z-10 w-full h-full flex flex-col justify-between p-6 sm:p-10 pointer-events-none select-none">
+                
+                <!-- Ceiling & Modern Pendant Light -->
+                <div class="flex justify-between items-start">
+                  <!-- Minimalist Wall Clock -->
+                  <div class="w-16 h-16 rounded-full border-4 border-white/80 bg-white/20 backdrop-blur-sm flex items-center justify-center text-white/90 shadow-lg">
+                    <i data-lucide="clock" class="w-8 h-8"></i>
+                  </div>
+                  <!-- Contemporary Pendant Lamp -->
+                  <div class="flex flex-col items-center">
+                    <div class="w-1 h-20 bg-slate-800"></div>
+                    <div class="w-20 h-10 bg-slate-900 rounded-t-full shadow-2xl flex items-end justify-center">
+                      <div class="w-6 h-3 bg-amber-200 rounded-full blur-[2px]"></div>
+                    </div>
+                  </div>
+                  <!-- Modern Floating Shelf with Plant & Books -->
+                  <div class="hidden sm:flex flex-col items-end gap-1">
+                    <div class="flex items-end gap-2 pr-4">
+                      <div class="w-4 h-12 bg-amber-400 rounded-sm"></div>
+                      <div class="w-5 h-14 bg-slate-800 rounded-sm"></div>
+                      <div class="w-6 h-8 bg-emerald-500 rounded-md"></div>
+                    </div>
+                    <div class="w-40 h-3 bg-white/90 rounded-sm shadow-md"></div>
+                  </div>
+                </div>
+
+                <!-- Mid-Century Artwork Frame on the Wall -->
+                <div class="self-center -mt-6">
+                  <div class="w-36 sm:w-48 h-24 sm:h-32 border-4 border-white bg-white/30 backdrop-blur-sm rounded-lg shadow-xl p-2 flex items-center justify-center">
+                    <div class="w-full h-full rounded border border-white/40 flex items-center justify-center text-white/90">
+                      <i data-lucide="frame" class="w-8 h-8"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Living Room Floor & Furniture -->
+                <div class="relative pt-6">
+                  
+                  <!-- Natural Oak Wood Flooring -->
+                  <div class="absolute inset-x-0 bottom-0 h-28 bg-[#DEB887] border-t-8 border-[#C19A6B] shadow-inner -mx-10 -mb-10">
+                    <div class="w-full h-full opacity-20 bg-[linear-gradient(90deg,transparent_49%,#8B5A2B_50%,transparent_51%)] bg-[length:60px_100%]"></div>
+                  </div>
+
+                  <!-- Designer Sofa / Chair & Planter -->
+                  <div class="relative z-10 flex items-end justify-between">
+                    
+                    <!-- Fiddle Leaf Fig Indoor Plant -->
+                    <div class="flex flex-col items-center">
+                      <div class="text-3xl sm:text-4xl">🌿</div>
+                      <div class="w-12 h-14 bg-white rounded-b-xl shadow-md border-t-4 border-amber-800"></div>
+                    </div>
+
+                    <!-- Cozy Modern Designer Sofa -->
+                    <div class="flex flex-col items-center">
+                      <!-- Sofa Pillows -->
+                      <div class="flex gap-2 -mb-2 z-10">
+                        <div class="w-10 h-10 rounded-xl bg-amber-300 shadow-md rotate-12"></div>
+                        <div class="w-10 h-10 rounded-xl bg-white shadow-md -rotate-6"></div>
+                      </div>
+                      <!-- Sofa Body -->
+                      <div class="w-64 sm:w-80 h-24 sm:h-28 bg-slate-900 rounded-t-3xl shadow-2xl flex items-center justify-center text-white/50 border-t-2 border-white/20">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-white/70">Designer Lounge Setup</span>
+                      </div>
+                      <!-- Sofa Wooden Peg Legs -->
+                      <div class="w-56 sm:w-72 flex justify-between px-4">
+                        <div class="w-3 h-5 bg-amber-900 rounded-b"></div>
+                        <div class="w-3 h-5 bg-amber-900 rounded-b"></div>
+                      </div>
+                    </div>
+
+                    <!-- Modern Coffee Table / Lamp -->
+                    <div class="hidden sm:flex flex-col items-center">
+                      <div class="w-20 h-4 bg-white rounded-full shadow-md"></div>
+                      <div class="w-1.5 h-16 bg-slate-700"></div>
+                      <div class="w-14 h-3 bg-slate-900 rounded-full"></div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- Bottom Tag inside room -->
+              <div class="absolute top-4 left-4 z-20 bg-slate-950/70 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-extrabold flex items-center gap-2">
+                <span id="display-color-pill" class="w-3 h-3 rounded-full bg-[#FF533D]"></span>
+                <span id="display-paint-name">Sunset Coral Pop</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Color Swatches & Paint Information Panel (4 Cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          
+          <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 shadow-xl space-y-5">
+            <h3 class="font-heading font-extrabold text-slate-900 text-lg flex items-center justify-between">
+              <span>Select A Doorstep Swatch</span>
+              <span class="text-xs text-brand-coral font-black uppercase">Live Sweep</span>
+            </h3>
+
+            <!-- 8 Curated Swatches Grid -->
+            <div class="grid grid-cols-4 gap-3">
+              <button class="color-swatch-btn active h-14 rounded-2xl bg-[#FF533D] shadow-md flex items-center justify-center text-white" data-color="#FF533D" title="Sunset Coral Pop">
+                <span class="text-xs font-black">★</span>
+              </button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#00C6FF] shadow-md flex items-center justify-center text-white" data-color="#00C6FF" title="Pacific Coast Lagoon"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#10B981] shadow-md flex items-center justify-center text-white" data-color="#10B981" title="Botanical Sage Garden"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#FFB800] shadow-md flex items-center justify-center text-white" data-color="#FFB800" title="Golden Honey Mimosa"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#7928CA] shadow-md flex items-center justify-center text-white" data-color="#7928CA" title="Royalty Orchid Purple"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#E2E8F0] shadow-md flex items-center justify-center text-slate-700" data-color="#E2E8F0" title="Scandinavian Cloud Mist"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#1E293B] shadow-md flex items-center justify-center text-white" data-color="#1E293B" title="Midnight Charcoal Shadow"></button>
+              <button class="color-swatch-btn h-14 rounded-2xl bg-[#D97706] shadow-md flex items-center justify-center text-white" data-color="#D97706" title="Tuscan Terracotta Warmth"></button>
+            </div>
+
+            <!-- Custom Color Picker Row -->
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+              <label for="custom-color-picker" class="text-xs font-bold text-slate-700 flex items-center gap-2 cursor-pointer">
+                <i data-lucide="pipette" class="w-4 h-4 text-brand-purple"></i>
+                <span>Choose Any Custom Color:</span>
+              </label>
+              <input type="color" id="custom-color-picker" value="#FF533D" class="w-10 h-10 rounded-xl cursor-pointer border-2 border-slate-300 p-0.5">
+            </div>
+
+            <!-- Active Paint Specification Card -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 uppercase">Paint Hex Code</span>
+                <span id="display-paint-hex" class="text-xs font-mono font-black text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">#FF533D</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 uppercase">Aesthetic Mood</span>
+                <span id="display-paint-mood" class="text-xs font-extrabold text-slate-800">Vibrant, welcoming & energetic</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-400 uppercase">Recommended Sheen</span>
+                <span id="display-paint-finish" class="text-xs font-extrabold text-brand-coral">Velvet Satin</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <button class="open-booking-modal-btn w-full fun-btn-primary text-white py-3.5 rounded-2xl font-black text-sm shadow-lg flex items-center justify-center gap-2">
+              <i data-lucide="paint-brush" class="w-4 h-4"></i>
+              <span>Bring This Color To My Home</span>
+            </button>
+            <p class="text-[11px] text-center text-slate-400 font-semibold">
+              ✓ Our master painters bring test swatches directly to your doorstep.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BEFORE & AFTER INTERACTIVE TRANSFORMATION SLIDER
+       ========================================================================== -->
+  <section id="transformations" class="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/30 px-3.5 py-1.5 rounded-full">
+          Real Client Transformations
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+          Slide The Roller: See The Difference
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Drag the handle left or right to see how a quick 1-day doorstep painting job transforms scuffed, drab walls into luxury living spaces.
+        </p>
+      </div>
+
+      <!-- Comparison Slider Widget -->
+      <div class="max-w-4xl mx-auto">
+        <div id="comparison-container" class="comparison-slider-wrapper aspect-[16/9] border-4 border-slate-700 relative cursor-ew-resize">
+          
+          <!-- "AFTER" Image (Clean, Vibrant, Modern Paint) -->
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="After: Freshly painted, bright modern interior room" class="w-full h-full object-cover">
+          <div class="absolute bottom-4 right-4 bg-emerald-500/90 text-white text-xs font-black px-4 py-2 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-lg">
+            ✨ After: Fresh Doorstep Coat
+          </div>
+
+          <!-- "BEFORE" Image Layer (Scuffed, Dull, Faded) -->
+          <div id="comparison-before" class="comparison-before-img" style="width: 50%;">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Before: Dull, scuffed, unpainted walls" class="absolute top-0 left-0 max-w-none w-full h-full object-cover filter contrast-75 brightness-75 grayscale-[40%]">
+            <div class="absolute bottom-4 left-4 bg-slate-900/90 text-slate-300 text-xs font-black px-4 py-2 rounded-full uppercase tracking-wider backdrop-blur-sm border border-slate-700 shadow-lg">
+              ⚠️ Before: Scuffed & Faded
+            </div>
+          </div>
+
+          <!-- Draggable Roller Handle -->
+          <div id="comparison-handle" class="comparison-handle" style="left: 50%;">
+            <div class="comparison-handle-knob">
+              <i data-lucide="move-horizontal" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Helpful slider instruction caption -->
+        <p class="text-center text-xs font-bold text-slate-400 mt-4 flex items-center justify-center gap-2">
+          <i data-lucide="hand" class="w-4 h-4 text-brand-yellow"></i>
+          Click or drag across the image to compare Before & After
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR DOORSTEP SERVICES (COLORFUL, PLAYFUL CARDS)
+       ========================================================================== -->
+  <section id="services" class="py-20 lg:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-brand-coral bg-brand-coral/10 px-3.5 py-1.5 rounded-full">
+          Comprehensive In-Home Solutions
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Everything We Paint At Your Door
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          From single room accents to entire home renovations, we do it with master equipment, zero mess, and vibrant colors.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Interior House Painting -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #FF533D;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-coral text-white flex items-center justify-center shadow-lg shadow-brand-coral/30 mb-6">
+            <i data-lucide="home" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Interior Wall & Ceiling Painting</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Living rooms, bedrooms, stairwells, and hallways. Laser-sharp edges, uniform saturation, and zero roller marks.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-coral"></i> Furniture carefully masked & protected</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-coral"></i> 2-coat durability with premium washable finish</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-coral"></i> Odorless, zero-VOC low-allergen paint</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Kitchen Cabinet Spray Makeover -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #00C6FF;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-cyan text-slate-900 flex items-center justify-center shadow-lg shadow-brand-cyan/30 mb-6">
+            <i data-lucide="utensils" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Kitchen Cabinet Spray Transformation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Save up to 75% over cabinet replacement! We bring a specialized HEPA spray tent to your home for a factory-smooth enamel finish.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> Ultra-hard lacquer polyurethane enamel</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> Modern handles & hardware reinstall included</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> 3-day turnaround with functional kitchen access</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Drywall Repair & Renovation Prep -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #FFB800;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-yellow text-slate-900 flex items-center justify-center shadow-lg shadow-brand-yellow/30 mb-6">
+            <i data-lucide="hammer" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Drywall Repair & Plaster Renovation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            A great paint job is only as good as the wall underneath. We patch holes, sand seams, fix water stains, and texture match flawlessly.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Seamless tape & mud patch work</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Texture blending (Orange peel, knockdown, smooth)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Mold & stain blocking primer coats</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Exterior & Siding Makeovers -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #10B981;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-green text-white flex items-center justify-center shadow-lg shadow-brand-green/30 mb-6">
+            <i data-lucide="sun" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Exterior Siding, Stucco & Brick</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Boost curb appeal and seal your home from harsh weather, rain, and UV fading with high-performance elastomeric exterior coats.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green"></i> Power wash & mildew treatment beforehand</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green"></i> 100% acrylic latex elastomeric barrier</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green"></i> Gutters, soffits, and trim detailed</li>
+          </ul>
+        </div>
+
+        <!-- Card 5: Baseboards, Doors & Woodwork -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #7928CA;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-purple text-white flex items-center justify-center shadow-lg shadow-brand-purple/30 mb-6">
+            <i data-lucide="door-closed" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Doors, Trims & Baseboard Enameling</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Crisp, gleaming white baseboards and freshly coated solid doors immediately modernize any house like an instant renovation.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-purple"></i> High-durability scuff-resistant enamel</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-purple"></i> Window sills, crown moldings, and casing</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-purple"></i> Smooth spray or hand-tipped finishes</li>
+          </ul>
+        </div>
+
+        <!-- Card 6: Doorstep Color Consultation -->
+        <div class="service-card bg-slate-50 border-2 border-slate-200/90 rounded-3xl p-7 relative" style="--card-accent: #FF0080;">
+          <div class="w-14 h-14 rounded-2xl bg-brand-pink text-white flex items-center justify-center shadow-lg shadow-brand-pink/30 mb-6">
+            <i data-lucide="swatch-book" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-black text-xl text-slate-900 mb-2">Doorstep Color Consultation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Not sure what color suits your natural room lighting? Our color consultant brings giant sample boards right to your living room.
+          </p>
+          <ul class="space-y-2 text-xs font-bold text-slate-700">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-pink"></i> 300+ physical color swatches tested in your light</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-pink"></i> Sheen recommendations (Matte vs Satin vs Gloss)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-pink"></i> Included FREE with every multi-room booking</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE DOORSTEP PAINT COST CALCULATOR
+       ========================================================================== -->
+  <section id="calculator" class="py-20 lg:py-28 bg-slate-50 border-y border-slate-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-brand-green bg-emerald-100 text-emerald-800 px-3.5 py-1.5 rounded-full">
+          Transparent Pricing
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Instant Doorstep Cost Estimator
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          No waiting for callbacks. Adjust the square footage and your preferred services to get an accurate ballpark estimate right now!
+        </p>
+      </div>
+
+      <!-- Calculator Card -->
+      <div class="max-w-5xl mx-auto bg-white rounded-3xl border-4 border-slate-900 shadow-2xl p-6 sm:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left Controls (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Sqft Slider -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="calc-sqft-slider" class="text-sm font-extrabold text-slate-900">
+                  Total Floor Area To Paint:
+                </label>
+                <div class="text-lg font-black text-brand-coral bg-brand-coral/10 px-3 py-1 rounded-xl">
+                  <span id="calc-sqft-display">850</span> sq. ft.
+                </div>
+              </div>
+              <input type="range" id="calc-sqft-slider" min="200" max="3500" step="50" value="850" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-coral">
+              <div class="flex justify-between text-[11px] font-bold text-slate-400">
+                <span>Single Room (200 sq ft)</span>
+                <span>Medium Home (1,800 sq ft)</span>
+                <span>Large Estate (3,500 sq ft)</span>
+              </div>
+            </div>
+
+            <!-- Project Type Dropdown -->
+            <div class="space-y-2">
+              <label for="calc-project-type" class="text-sm font-extrabold text-slate-900">
+                Painting Project Scope:
+              </label>
+              <select id="calc-project-type" class="w-full bg-slate-50 border-2 border-slate-300 rounded-xl px-4 py-3 text-sm font-bold text-slate-800 focus:outline-none focus:border-brand-coral">
+                <option value="single-room">Single Room Refresh (Walls + Accent)</option>
+                <option value="interior-standard" selected>Full Interior (Multiple Rooms + Ceilings)</option>
+                <option value="exterior-siding">Exterior Siding & Stucco Coating</option>
+                <option value="cabinets">Kitchen Cabinet Spray Refinishing</option>
+                <option value="full-reno">Complete Home Renovation & Wall Makeover</option>
+              </select>
+            </div>
+
+            <!-- Wall Preparation Condition -->
+            <div class="space-y-2">
+              <label for="calc-prep-level" class="text-sm font-extrabold text-slate-900">
+                Existing Wall Condition (Prep Needed):
+              </label>
+              <select id="calc-prep-level" class="w-full bg-slate-50 border-2 border-slate-300 rounded-xl px-4 py-3 text-sm font-bold text-slate-800 focus:outline-none focus:border-brand-coral">
+                <option value="standard" selected>Standard (Light scuffs, good clean condition)</option>
+                <option value="smooth-flawless">Moderate (Nail holes, small dents, need priming)</option>
+                <option value="heavy-repair">Heavy Renovation (Drywall cracks, water patches, textured)</option>
+              </select>
+            </div>
+
+            <!-- Add-ons Checkboxes -->
+            <div class="space-y-2.5 pt-2">
+              <span class="text-xs font-black uppercase tracking-wider text-slate-400">Optional Enhancements</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-bold text-slate-700">
+                <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-white transition-colors">
+                  <input type="checkbox" id="addon-drywall" class="w-4 h-4 rounded text-brand-coral accent-brand-coral">
+                  <span>Drywall Crack Patching</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-white transition-colors">
+                  <input type="checkbox" id="addon-trim" class="w-4 h-4 rounded text-brand-coral accent-brand-coral">
+                  <span>Door & Trim Gloss Enamel</span>
+                </label>
+                <label class="flex items-center gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-white transition-colors sm:col-span-2">
+                  <input type="checkbox" id="addon-zerovoc" class="w-4 h-4 rounded text-brand-coral accent-brand-coral">
+                  <span>Ultra-Premium Zero-VOC Scrubbable Paint (Kid & Pet Safe)</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Output Display (5 cols) -->
+          <div class="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-xl">
+            
+            <!-- Animated Paint Bucket Graphic with Dynamic Fill Level -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-5">
+              <div>
+                <p class="text-xs font-black uppercase tracking-widest text-brand-yellow">Estimated Doorstep Cost</p>
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span id="calc-price-min" class="font-heading font-black text-3xl sm:text-4xl text-white">$1,750</span>
+                  <span class="text-slate-400 font-bold text-sm">to</span>
+                  <span id="calc-price-max" class="font-heading font-black text-2xl sm:text-3xl text-brand-yellow">$2,050</span>
+                </div>
+              </div>
+
+              <!-- Animated Bucket Meter Icon -->
+              <div class="w-14 h-18 relative flex flex-col items-center">
+                <!-- Paint Bucket SVG Handle -->
+                <div class="w-12 h-6 border-2 border-slate-400 rounded-t-full -mb-1"></div>
+                <!-- Bucket Container -->
+                <div class="w-12 h-14 bg-slate-800 border-2 border-slate-600 rounded-b-lg relative overflow-hidden shadow-inner">
+                  <!-- Dynamic Paint Fill Level -->
+                  <div id="calc-bucket-fill" class="bucket-fill-level absolute bottom-0 inset-x-0 bg-gradient-to-t from-brand-coral to-brand-yellow" style="height: 40%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Breakdown Metrics -->
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                <i data-lucide="paint-bucket" class="w-4 h-4 mx-auto text-brand-yellow mb-1"></i>
+                <div id="calc-gallons" class="font-heading font-black text-sm text-white">5 Gal</div>
+                <div class="text-[10px] text-slate-400 font-semibold uppercase">Paint Needed</div>
+              </div>
+              <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                <i data-lucide="clock" class="w-4 h-4 mx-auto text-brand-cyan mb-1"></i>
+                <div id="calc-days" class="font-heading font-black text-sm text-white">1-2 Days</div>
+                <div class="text-[10px] text-slate-400 font-semibold uppercase">Est. Duration</div>
+              </div>
+              <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                <i data-lucide="users" class="w-4 h-4 mx-auto text-brand-coral mb-1"></i>
+                <div id="calc-painters" class="font-heading font-black text-sm text-white">2 Pros</div>
+                <div class="text-[10px] text-slate-400 font-semibold uppercase">Crew Size</div>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              * Estimate includes full furniture masking, surface preparation, 2 coats of paint, and complete cleanup. Final firm quote provided during free doorstep inspection.
+            </p>
+
+            <!-- Book with Estimate CTA -->
+            <button class="open-booking-modal-btn w-full fun-btn-primary text-white py-4 rounded-xl font-black text-sm shadow-xl flex items-center justify-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span>Lock In This Doorstep Estimate</span>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW WE WORK: 4-STEP DOORSTEP JOURNEY
+       ========================================================================== -->
+  <section class="py-20 lg:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-brand-purple bg-purple-100 text-purple-800 px-3.5 py-1.5 rounded-full">
+          Simple & Hassle-Free
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          How Our Doorstep Service Works
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          You don't need to lift a paintbrush or buy rolls of masking tape. We handle everything from knock to final handshake.
+        </p>
+      </div>
+
+      <!-- 4 Step Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="bg-slate-50 border-2 border-slate-200/80 rounded-3xl p-6 relative flex flex-col justify-between hover:border-brand-coral transition-colors">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-coral/10 text-brand-coral font-heading font-black text-xl flex items-center justify-center">
+              01
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-slate-900">Doorstep Knock & Swatch Match</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              We arrive at your scheduled time with physical color sample boards and laser measuring tools to evaluate lighting and room walls.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-coral"></i> Free & zero obligation
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-slate-50 border-2 border-slate-200/80 rounded-3xl p-6 relative flex flex-col justify-between hover:border-brand-yellow transition-colors">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-yellow/15 text-amber-700 font-heading font-black text-xl flex items-center justify-center">
+              02
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-slate-900">Mask, Prep & Plaster Repair</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Floors get heavy-duty canvas drop cloths, furniture is centered & plastic wrapped, and all wall imperfections are patched & sanded.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-yellow"></i> 100% floor safety
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-slate-50 border-2 border-slate-200/80 rounded-3xl p-6 relative flex flex-col justify-between hover:border-brand-cyan transition-colors">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 font-heading font-black text-xl flex items-center justify-center">
+              03
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-slate-900">Precision Two-Coat Application</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Our seasoned painters apply 2 consistent coats with micro-fiber rollers and precision trim brushes for razor-sharp edges.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600"></i> No streaks or blotches
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-slate-50 border-2 border-slate-200/80 rounded-3xl p-6 relative flex flex-col justify-between hover:border-brand-green transition-colors">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 font-heading font-black text-xl flex items-center justify-center">
+              04
+            </div>
+            <h3 class="font-heading font-extrabold text-lg text-slate-900">Spotless Walkthrough & Warranty</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              We vacuum, wipe down surfaces, put furniture back in place, and walk every wall with you. Backed by our 3-year warranty!
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-200/60 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 100% satisfaction
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAINT CHIP REVIEWS & TESTIMONIALS
+       ========================================================================== -->
+  <section id="reviews" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-brand-yellow bg-amber-100 text-amber-800 px-3.5 py-1.5 rounded-full">
+          Verified Doorstep Reviews
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          Happy Homeowners Across Town
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Read what clients say after our painting van pulled up at their doorstep!
+        </p>
+      </div>
+
+      <!-- Testimonials styled like colorful paint chips -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1: Coral Chip -->
+        <div class="paint-chip-card border-2 border-slate-200">
+          <!-- Paint Color Header -->
+          <div class="h-24 bg-[#FF533D] p-4 flex items-end justify-between text-white">
+            <span class="text-xs font-black uppercase tracking-wider">SWATCH #402: CORAL SUNSET</span>
+            <span class="text-xs font-bold bg-black/25 px-2 py-0.5 rounded">Living Room</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              ★★★★★
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic">
+              "The team showed up at 8 AM sharp. By 4 PM, our two kids' rooms and main hallway were completely painted in the most joyful colors, and they vacuumed everything before leaving. Incredible doorstep service!"
+            </p>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-extrabold text-slate-900">Elena & Marcus Vance</p>
+                <p class="text-[11px] text-slate-400">Homeowner • 2-Room Renovation</p>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2: Cyan Chip -->
+        <div class="paint-chip-card border-2 border-slate-200">
+          <div class="h-24 bg-[#00C6FF] p-4 flex items-end justify-between text-slate-950">
+            <span class="text-xs font-black uppercase tracking-wider">SWATCH #119: OCEAN MIST</span>
+            <span class="text-xs font-bold bg-white/40 px-2 py-0.5 rounded">Kitchen Cabinets</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              ★★★★★
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic">
+              "We were quoted $14,000 for new cabinets. 'At Your Door' sprayed our old oak cabinets in deep navy & brass hardware for a fraction of that. Our kitchen looks like something from Architectural Digest!"
+            </p>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-extrabold text-slate-900">David Kowalski</p>
+                <p class="text-[11px] text-slate-400">Full Kitchen Cabinet Makeover</p>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3: Sage Chip -->
+        <div class="paint-chip-card border-2 border-slate-200">
+          <div class="h-24 bg-[#10B981] p-4 flex items-end justify-between text-white">
+            <span class="text-xs font-black uppercase tracking-wider">SWATCH #508: BOTANIC SAGE</span>
+            <span class="text-xs font-bold bg-black/25 px-2 py-0.5 rounded">Drywall & Master Suite</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">
+              ★★★★★
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic">
+              "We had terrible drywall cracks and peeling paint from old water leaks. The crew repaired the drywall smooth as silk and applied two flawless coats. You can't even tell where the damage was!"
+            </p>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-extrabold text-slate-900">Priya & Jason Patel</p>
+                <p class="text-[11px] text-slate-400">Master Bedroom & Plaster Repair</p>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Verified</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FREQUENTLY ASKED QUESTIONS (ACCORDION)
+       ========================================================================== -->
+  <section class="py-20 lg:py-24 bg-white relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14 space-y-3">
+        <span class="text-xs font-black uppercase tracking-widest text-slate-400">Questions Answered</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-black text-slate-900">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item border-2 border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+          <button class="faq-trigger w-full px-6 py-5 text-left font-heading font-extrabold text-slate-900 flex items-center justify-between gap-4">
+            <span>Is this just a simple painting job or a full home renovation service?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
+            It is a complete <strong>in-home doorstep renovation painting service</strong>! We don't just brush color over dirty walls — we inspect the drywall, patch holes and cracks, mask and tape all flooring, prep baseboards, prime problem areas, and spray/roll premium paints. We also handle kitchen cabinet refinishing, deck staining, and full exterior makeovers.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item border-2 border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+          <button class="faq-trigger w-full px-6 py-5 text-left font-heading font-extrabold text-slate-900 flex items-center justify-between gap-4">
+            <span>Do I need to move heavy furniture before you arrive?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
+            No! You only need to remove small fragile knick-knacks and picture frames. Our crew carefully moves large furniture into the center of the room and wraps it in clean protective plastic sheeting so not a single drop of paint or speck of dust gets on it.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item border-2 border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+          <button class="faq-trigger w-full px-6 py-5 text-left font-heading font-extrabold text-slate-900 flex items-center justify-between gap-4">
+            <span>Are the paints safe for my children and pets?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
+            Yes, 100%! We exclusively use premium Zero-VOC and ultra-low-VOC coatings from top brands (Sherwin-Williams, Benjamin Moore). There are no toxic solvent fumes or persistent chemical odors, allowing your family to safely sleep in your home the very same evening.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item border-2 border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+          <button class="faq-trigger w-full px-6 py-5 text-left font-heading font-extrabold text-slate-900 flex items-center justify-between gap-4">
+            <span>How fast can a typical room be painted?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
+            A standard bedroom or living room (walls, trim, and minor drywall patch) is completed by our 2-person master crew in <strong>just 1 single business day (usually 6 to 8 hours)</strong>. We clean up and leave your room ready to enjoy before dinner!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FINAL CTA & DOORSTEP BOOKING BANNER
+       ========================================================================== -->
+  <section class="py-20 bg-gradient-to-tr from-brand-coral via-brand-yellow to-brand-cyan text-slate-950 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+      
+      <span class="inline-flex items-center gap-1.5 bg-slate-950 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-yellow"></i> Limited Slots Open This Week
+      </span>
+
+      <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950">
+        Ready To Bring Fresh Color To Your Door?
+      </h2>
+
+      <p class="text-slate-900 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+        Book a quick 15-minute doorstep color consultation. We’ll measure your walls, inspect drywall conditions, and show you real swatches with guaranteed upfront pricing.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <button class="open-booking-modal-btn bg-slate-950 hover:bg-slate-900 text-white font-extrabold px-8 py-4 rounded-2xl text-base shadow-2xl flex items-center gap-2">
+          <i data-lucide="calendar" class="w-5 h-5 text-brand-yellow"></i>
+          <span>Schedule Doorstep Visit</span>
+        </button>
+        <a href="tel:+18005557246" class="bg-white/90 hover:bg-white text-slate-900 font-extrabold px-8 py-4 rounded-2xl text-base shadow-md flex items-center gap-2">
+          <i data-lucide="phone-call" class="w-5 h-5 text-brand-coral"></i>
+          <span>(800) 555-PAINT</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-coral flex items-center justify-center text-white font-bold">
+              <i data-lucide="paint-roller" class="w-5 h-5"></i>
+            </div>
+            <span class="font-heading font-black text-xl text-white">AT YOUR DOOR</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Premier residential painting and in-home renovation services. Bringing color, care, and craftsmanship straight to homeowners.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400">
+            <span class="text-xs font-bold text-brand-yellow">Licensed & Insured #PT-84920</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-white text-sm uppercase tracking-wider mb-4">Doorstep Services</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li><a href="#services" class="hover:text-white transition-colors">Interior Wall & Ceiling Paint</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Kitchen Cabinet Spraying</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Drywall Crack & Hole Repair</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Exterior Siding & Stucco</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Baseboards & Doors</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-white text-sm uppercase tracking-wider mb-4">Interactive Tools</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li><a href="#colorizer" class="hover:text-white transition-colors">Live Room Color Visualizer</a></li>
+            <li><a href="#transformations" class="hover:text-white transition-colors">Before & After Slider</a></li>
+            <li><a href="#calculator" class="hover:text-white transition-colors">Instant Cost Estimator</a></li>
+            <li><a href="#reviews" class="hover:text-white transition-colors">Verified Customer Reviews</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-white text-sm uppercase tracking-wider mb-4">Contact & Location</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-brand-coral"></i> (800) 555-7246</li>
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-brand-yellow"></i> hello@atyourdoorpainting.com</li>
+            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> Greater Metropolitan & Suburbs</li>
+            <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-brand-green"></i> Mon - Sat: 7:00 AM - 7:00 PM</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 At Your Door Painting & Home Renovation. All rights reserved.</p>
+        <p class="flex items-center gap-2">
+          <span>Crafted with</span>
+          <span class="text-brand-coral">❤</span>
+          <span>for Go-Execution</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL: BOOKING & FREE DOORSTEP ESTIMATE
+       ========================================================================== -->
+  <div id="booking-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border-4 border-slate-900 shadow-2xl relative">
+      
+      <!-- Close Button -->
+      <button id="close-modal-btn" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700" aria-label="Close Modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="mb-6 space-y-1">
+        <span class="text-xs font-black uppercase tracking-wider text-brand-coral bg-brand-coral/10 px-2.5 py-0.5 rounded-full">
+          Free Doorstep Consultation
+        </span>
+        <h3 class="font-heading font-black text-2xl text-slate-900">
+          Book Your Doorstep Painter
+        </h3>
+        <p class="text-xs text-slate-500">
+          We bring swatches, measure up, and give you an exact price with zero pressure.
+        </p>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="doorstep-quote-form" class="space-y-4">
+        
+        <div>
+          <label class="block text-xs font-extrabold text-slate-700 mb-1">Your Full Name</label>
+          <input type="text" required placeholder="e.g. John Smith" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-brand-coral">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-extrabold text-slate-700 mb-1">Phone Number</label>
+            <input type="tel" required placeholder="(555) 000-0000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-brand-coral">
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold text-slate-700 mb-1">Home Zip Code</label>
+            <input type="text" required placeholder="e.g. 90210" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-brand-coral">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold text-slate-700 mb-1">Service Requested</label>
+          <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-brand-coral">
+            <option>Interior Walls & Ceilings</option>
+            <option>Kitchen Cabinet Spray Refinish</option>
+            <option>Drywall Repair + Full Paint</option>
+            <option>Exterior Siding & Stucco</option>
+            <option>Complete Home Renovation Makeover</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold text-slate-700 mb-1">Preferred Doorstep Visit Date</label>
+          <input type="date" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:outline-none focus:border-brand-coral">
+        </div>
+
+        <button type="submit" class="w-full fun-btn-primary text-white py-3.5 rounded-xl font-black text-sm shadow-xl flex items-center justify-center gap-2 mt-4">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Confirm Doorstep Booking</span>
+        </button>
+
+      </form>
+
+      <!-- Success State -->
+      <div id="booking-success" class="hidden text-center py-8 space-y-3">
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center text-2xl font-black">
+          ✓
+        </div>
+        <h4 class="font-heading font-black text-xl text-slate-900">Doorstep Visit Confirmed!</h4>
+        <p class="text-xs text-slate-600 max-w-xs mx-auto">
+          Our team is prepping your color swatch kit. We will text you 30 minutes before arriving at your door!
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lucide Icon Initialization -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
