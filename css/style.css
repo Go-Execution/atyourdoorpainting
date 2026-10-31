@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AT YOUR DOOR PAINTING & HOME RENOVATION
+   AT YOUR DOOR PAINTING
    Vibrant, Fun, Animated Stylesheet
    ========================================================================== */
 
@@ -12,10 +12,7 @@
   --primary-blue: #0072FF;
   --primary-purple: #7928CA;
   --primary-green: #10B981;
-  --primary-pink: #FF0080;
-  --paint-charcoal: #1E293B;
-  --paint-cream: #FAF9F6;
-  --paint-slate: #0F172A;
+  --paint-charcoal: #0F172A;
 }
 
 * {
@@ -37,101 +34,19 @@ h1, h2, h3, h4, .font-heading {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF533D, #FFB800, #00C6FF, #7928CA);
+  background: linear-gradient(180deg, #FF533D, #FFB800, #00C6FF);
   border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #e04430, #e0a200, #00a8dc, #661fb0);
 }
 
 /* --------------------------------------------------------------------------
-   Paint Animations
+   Animations
    -------------------------------------------------------------------------- */
-
-@keyframes float-wobble {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) rotate(-2deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(1deg);
-  }
-  75% {
-    transform: translateY(-6px) rotate(3deg);
-  }
-}
-
-@keyframes paint-drip {
-  0% {
-    height: 12px;
-    opacity: 0.9;
-  }
-  50% {
-    height: 28px;
-    opacity: 1;
-  }
-  100% {
-    height: 12px;
-    opacity: 0.9;
-  }
-}
-
-@keyframes paint-drop-fall {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(35px) scale(0.9);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(42px) scale(1.4);
-    opacity: 0;
-  }
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 83, 61, 0.6);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 16px rgba(255, 83, 61, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 83, 61, 0);
-  }
-}
-
-@keyframes roller-sweep {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(110%);
-  }
-}
-
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
 @keyframes rainbow-shimmer {
   0% {
     background-position: 0% 50%;
@@ -144,22 +59,6 @@ h1, h2, h3, h4, .font-heading {
   }
 }
 
-.animate-float {
-  animation: float-wobble 5s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-wobble 6s ease-in-out infinite 1.5s;
-}
-
-.animate-pulse-ring {
-  animation: pulse-ring 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 2.5s ease-in-out infinite;
-}
-
 .gradient-text-rainbow {
   background: linear-gradient(135deg, #FF533D, #FFB800, #00C6FF, #7928CA, #FF0080);
   background-size: 300% 300%;
@@ -168,25 +67,9 @@ h1, h2, h3, h4, .font-heading {
   animation: rainbow-shimmer 8s ease infinite;
 }
 
-.gradient-text-warm {
-  background: linear-gradient(135deg, #FF533D 0%, #FFB800 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-cool {
-  background: linear-gradient(135deg, #00C6FF 0%, #0072FF 50%, #7928CA 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* --------------------------------------------------------------------------
-   Dripping Paint Top / Bottom Dividers
+   Paint Splat Particles
    -------------------------------------------------------------------------- */
-.paint-drips-svg {
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.06));
-}
-
 .paint-splat-cursor {
   position: fixed;
   pointer-events: none;
@@ -213,16 +96,8 @@ h1, h2, h3, h4, .font-heading {
 /* --------------------------------------------------------------------------
    Interactive Room Colorizer
    -------------------------------------------------------------------------- */
-.room-canvas-container {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
-  background: #f8fafc;
-}
-
 .room-wall-layer {
-  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
@@ -239,7 +114,7 @@ h1, h2, h3, h4, .font-heading {
 
 .roller-sweep-overlay.active {
   opacity: 1;
-  animation: roller-pass 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: roller-pass 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes roller-pass {
@@ -255,116 +130,17 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .color-swatch-btn {
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
 }
 
 .color-swatch-btn:hover {
-  transform: translateY(-4px) scale(1.08);
+  transform: translateY(-2px) scale(1.04);
 }
 
 .color-swatch-btn.active {
-  transform: translateY(-4px) scale(1.12);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 4px #FFFFFF, 0 0 0 7px #0F172A;
-}
-
-/* --------------------------------------------------------------------------
-   Before & After Slider
-   -------------------------------------------------------------------------- */
-.comparison-slider-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-  user-select: none;
-}
-
-.comparison-before-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.comparison-handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #FFFFFF;
-  cursor: ew-resize;
-  z-index: 20;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-}
-
-.comparison-handle-knob {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FF533D, #FFB800);
-  border: 4px solid #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: 0 8px 20px rgba(255, 83, 61, 0.4);
-  transition: transform 0.2s ease;
-}
-
-.comparison-slider-wrapper:hover .comparison-handle-knob {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-/* --------------------------------------------------------------------------
-   Paint Chip Reviews
-   -------------------------------------------------------------------------- */
-.paint-chip-card {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  overflow: hidden;
-  background: #FFFFFF;
-}
-
-.paint-chip-card:hover {
-  transform: translateY(-8px) rotate(-0.5deg);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.16);
-}
-
-/* --------------------------------------------------------------------------
-   Service Cards & Roller Glow
-   -------------------------------------------------------------------------- */
-.service-card {
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background: var(--card-accent, #FF533D);
-  transition: width 0.3s ease;
-  z-index: 1;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.12);
-}
-
-.service-card:hover::before {
-  width: 10px;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.25), 0 0 0 3px #FFFFFF, 0 0 0 5px #0F172A;
 }
 
 /* --------------------------------------------------------------------------
@@ -372,12 +148,12 @@ h1, h2, h3, h4, .font-heading {
    -------------------------------------------------------------------------- */
 .bg-blob-1 {
   position: absolute;
-  top: -100px;
-  right: -80px;
-  width: 450px;
-  height: 450px;
+  top: -80px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
   border-radius: 43% 57% 70% 30% / 45% 45% 55% 55%;
-  background: radial-gradient(circle, rgba(255, 184, 0, 0.18) 0%, rgba(255, 83, 61, 0.05) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(255, 184, 0, 0.16) 0%, rgba(255, 83, 61, 0.04) 70%, transparent 100%);
   filter: blur(40px);
   z-index: 0;
   pointer-events: none;
@@ -385,49 +161,29 @@ h1, h2, h3, h4, .font-heading {
 
 .bg-blob-2 {
   position: absolute;
-  top: 40%;
-  left: -120px;
-  width: 500px;
-  height: 500px;
+  top: 45%;
+  left: -100px;
+  width: 460px;
+  height: 460px;
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  background: radial-gradient(circle, rgba(0, 198, 255, 0.15) 0%, rgba(121, 40, 202, 0.05) 70%, transparent 100%);
-  filter: blur(45px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.bg-blob-3 {
-  position: absolute;
-  bottom: 10%;
-  right: -100px;
-  width: 480px;
-  height: 480px;
-  border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(255, 184, 0, 0.05) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(0, 198, 255, 0.12) 0%, rgba(121, 40, 202, 0.04) 70%, transparent 100%);
   filter: blur(45px);
   z-index: 0;
   pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------
-   Paint Bucket Estimator Progress Fill
-   -------------------------------------------------------------------------- */
-.bucket-fill-level {
-  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s ease;
-}
-
-/* --------------------------------------------------------------------------
-   Badges and Buttons
+   Buttons
    -------------------------------------------------------------------------- */
 .fun-btn-primary {
   background: linear-gradient(135deg, #FF533D 0%, #FF2A6D 100%);
-  box-shadow: 0 10px 25px -5px rgba(255, 83, 61, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 20px -4px rgba(255, 83, 61, 0.45);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .fun-btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 32px -6px rgba(255, 83, 61, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 25px -5px rgba(255, 83, 61, 0.55);
 }
 
 .fun-btn-primary:active {
@@ -437,17 +193,12 @@ h1, h2, h3, h4, .font-heading {
 .fun-btn-secondary {
   background: #FFFFFF;
   border: 2px solid #E2E8F0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   transition: all 0.2s ease;
 }
 
 .fun-btn-secondary:hover {
   border-color: #0F172A;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* Sticky top notification */
-.doorstep-pill {
-  animation: bounce-subtle 3s ease-in-out infinite;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }

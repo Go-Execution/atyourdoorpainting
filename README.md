@@ -14,9 +14,8 @@ A clean, simple, and colorful one-page website for **At Your Door Painting** —
    - **Interior Home Painting:** Walls, ceilings, clean laser edges, zero paint odor.
    - **Cabinets & Doors:** Ultra-smooth factory spray finish.
    - **Drywall & Renovation Fix:** Cracks, nail holes, and plaster smoothed like glass.
-4. **↔️ Before & After Slider:** Interactive visual proof comparing scuffed old walls to a modern fresh painted room.
-5. **📐 Quick 1-Slider Price Estimator:** Slide square footage for an instant cost and timeframe estimate.
-6. **🎉 Booking Modal with Confetti:** One-click booking with instant celebratory confetti.
+4. **📐 Quick 1-Slider Price Estimator:** Slide square footage for an instant cost and timeframe estimate.
+5. **🎉 Booking Modal with Confetti:** One-click booking with instant celebratory confetti.
 
 ---
 

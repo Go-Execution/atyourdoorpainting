@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initPaintSplatterEngine();
   initRoomColorizer();
-  initBeforeAfterSlider();
   initEstimateCalculator();
   initBookingModal();
 });
@@ -18,8 +17,8 @@ const paintColors = ['#FF533D', '#FFB800', '#00C6FF', '#7928CA', '#10B981', '#FF
 
 function initPaintSplatterEngine() {
   document.addEventListener('click', (e) => {
-    // Avoid triggering when clicking form elements or handles
-    if (e.target.closest('input, textarea, select, button, .comparison-handle, a')) return;
+    // Avoid triggering when clicking form elements or buttons
+    if (e.target.closest('input, textarea, select, button, a')) return;
 
     createSplatter(e.clientX, e.clientY);
   });
@@ -106,49 +105,7 @@ function initRoomColorizer() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Before & After Comparison Slider
-   -------------------------------------------------------------------------- */
-function initBeforeAfterSlider() {
-  const container = document.getElementById('comparison-container');
-  const beforeLayer = document.getElementById('comparison-before');
-  const handle = document.getElementById('comparison-handle');
-
-  if (!container || !beforeLayer || !handle) return;
-
-  let isDragging = false;
-
-  function setSliderPosition(clientX) {
-    const rect = container.getBoundingClientRect();
-    let x = clientX - rect.left;
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
-
-    const percentage = (x / rect.width) * 100;
-    beforeLayer.style.width = `${percentage}%`;
-    handle.style.left = `${percentage}%`;
-  }
-
-  handle.addEventListener('mousedown', () => { isDragging = true; });
-  window.addEventListener('mouseup', () => { isDragging = false; });
-  window.addEventListener('mousemove', (e) => {
-    if (isDragging) setSliderPosition(e.clientX);
-  });
-
-  handle.addEventListener('touchstart', () => { isDragging = true; }, { passive: true });
-  window.addEventListener('touchend', () => { isDragging = false; });
-  window.addEventListener('touchmove', (e) => {
-    if (isDragging && e.touches.length > 0) {
-      setSliderPosition(e.touches[0].clientX);
-    }
-  }, { passive: true });
-
-  container.addEventListener('click', (e) => {
-    setSliderPosition(e.clientX);
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. Simple Price Estimator
+   3. Simple Price Estimator
    -------------------------------------------------------------------------- */
 function initEstimateCalculator() {
   const slider = document.getElementById('calc-sqft-slider');
@@ -164,7 +121,6 @@ function initEstimateCalculator() {
     const sqft = parseInt(slider.value, 10);
     if (display) display.textContent = sqft.toLocaleString();
 
-    // Clean simple rate: ~$1.90 - $2.30 per sqft for complete doorstep painting
     const min = Math.round(sqft * 1.90);
     const max = Math.round(sqft * 2.30);
 
@@ -190,7 +146,7 @@ function initEstimateCalculator() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Booking Modal with Confetti
+   4. Booking Modal with Confetti
    -------------------------------------------------------------------------- */
 function initBookingModal() {
   const modal = document.getElementById('booking-modal');
@@ -225,7 +181,6 @@ function initBookingModal() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Confetti burst
       if (typeof confetti === 'function') {
         confetti({
           particleCount: 100,

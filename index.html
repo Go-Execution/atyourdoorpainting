@@ -48,40 +48,48 @@
   <div class="bg-blob-2"></div>
 
   <!-- ==========================================================================
-       TOP BAR
+       TOP NAVIGATION BAR (PERFECTLY ALIGNED)
        ========================================================================== -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-coral via-brand-yellow to-brand-purple flex items-center justify-center text-white shadow-md">
+      <!-- Brand Logo (Left Aligned) -->
+      <a href="#" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-brand-coral via-brand-yellow to-brand-purple flex items-center justify-center text-white shadow-md shadow-brand-coral/20 group-hover:scale-105 transition-transform shrink-0">
           <i data-lucide="paint-roller" class="w-5 h-5"></i>
         </div>
-        <div>
-          <span class="font-heading font-black text-lg tracking-tight text-slate-900 block leading-tight">
-            AT YOUR DOOR <span class="text-brand-coral">.</span>
+        <div class="flex flex-col justify-center">
+          <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-900 leading-tight">
+            AT YOUR DOOR<span class="text-brand-coral">.</span>
           </span>
-          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block -mt-0.5">
+          <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest leading-none mt-0.5">
             Painting & Renovation
           </span>
         </div>
       </a>
 
-      <!-- Quick Nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-600">
-        <a href="#colorizer" class="hover:text-brand-coral transition-colors">🎨 Live Colorizer</a>
-        <a href="#services" class="hover:text-brand-coral transition-colors">🛠️ Services</a>
-        <a href="#transformations" class="hover:text-brand-coral transition-colors">✨ Before & After</a>
-        <a href="#estimator" class="hover:text-brand-coral transition-colors">💰 Price Calculator</a>
+      <!-- Quick Nav Links (Centered) -->
+      <nav class="hidden md:flex items-center justify-center gap-8 text-sm font-bold text-slate-600">
+        <a href="#colorizer" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <span>🎨 Live Colorizer</span>
+        </a>
+        <a href="#services" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <span>🛠️ Services</span>
+        </a>
+        <a href="#estimator" class="hover:text-brand-coral transition-colors flex items-center gap-1.5">
+          <span>💰 Price Calculator</span>
+        </a>
       </nav>
 
-      <!-- Action Button -->
-      <div class="flex items-center gap-3">
-        <a href="tel:+18005557246" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-700 hover:text-brand-coral">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-coral"></i> (800) 555-PAINT
+      <!-- Action Buttons (Right Aligned) -->
+      <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+        <a href="tel:+18005557246" class="hidden sm:inline-flex items-center gap-2 text-xs font-black text-slate-700 hover:text-brand-coral transition-colors">
+          <div class="w-7 h-7 rounded-full bg-brand-coral/10 text-brand-coral flex items-center justify-center">
+            <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          </div>
+          <span>(800) 555-PAINT</span>
         </a>
-        <button class="open-booking-modal-btn fun-btn-primary text-white text-xs sm:text-sm font-extrabold px-4 py-2 sm:px-5 sm:py-2.5 rounded-full flex items-center gap-1.5">
+        <button class="open-booking-modal-btn fun-btn-primary text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-full flex items-center gap-2 shadow-md">
           <i data-lucide="calendar" class="w-4 h-4"></i>
           <span>Book Painter</span>
         </button>
@@ -93,56 +101,52 @@
   <!-- ==========================================================================
        HERO: SIMPLE, COLORFUL & IMPACTFUL
        ========================================================================== -->
-  <section class="py-12 sm:py-20 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section class="py-14 sm:py-20 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
       
-      <div class="text-center max-w-3xl mx-auto space-y-6">
-        
-        <!-- Fun Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm font-black shadow-sm">
-          <span class="w-2.5 h-2.5 rounded-full bg-brand-coral animate-ping"></span>
-          <span>🚚 Doorstep House Painting & Renovation</span>
+      <!-- Header Badge -->
+      <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm font-black shadow-xs mx-auto">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-coral animate-ping"></span>
+        <span>🚚 Doorstep House Painting & Renovation</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+        We Paint Your Home.<br>
+        <span class="gradient-text-rainbow">You Just Pick The Color!</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium leading-relaxed">
+        No messy DIY, no endless trips to paint stores. We come straight to your home with premium paints, fix drywall dents, and roll fresh colors with zero mess.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+        <a href="#colorizer" class="fun-btn-primary text-white font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-xl flex items-center gap-2">
+          <i data-lucide="palette" class="w-4 h-4"></i>
+          <span>Try Colorizer Below</span>
+        </a>
+        <a href="#estimator" class="fun-btn-secondary text-slate-800 font-extrabold px-6 py-3.5 rounded-2xl text-sm flex items-center gap-2">
+          <i data-lucide="calculator" class="w-4 h-4 text-brand-coral"></i>
+          <span>Quick Price Check</span>
+        </a>
+      </div>
+
+      <!-- 3 Value Pillars -->
+      <div class="pt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-black text-slate-700">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-black">✓</span>
+          <span>Zero Mess Guarantee</span>
         </div>
-
-        <!-- Big Bold Title -->
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
-          We Paint Your Home.<br>
-          <span class="gradient-text-rainbow">You Just Pick The Color!</span>
-        </h1>
-
-        <!-- Short Subtitle -->
-        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
-          No messy DIY, no endless trips to paint stores. We come straight to your home with premium paints, fix drywall dents, and roll fresh colors with zero mess.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-          <a href="#colorizer" class="fun-btn-primary text-white font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-xl flex items-center gap-2">
-            <i data-lucide="palette" class="w-4 h-4"></i>
-            <span>Try Colorizer Below</span>
-          </a>
-          <a href="#estimator" class="fun-btn-secondary text-slate-800 font-extrabold px-6 py-3.5 rounded-2xl text-sm flex items-center gap-2">
-            <i data-lucide="calculator" class="w-4 h-4 text-brand-coral"></i>
-            <span>Quick Price Check</span>
-          </a>
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-black">⚡</span>
+          <span>1-Day Room Service</span>
         </div>
-
-        <!-- 3 Simple Pillars -->
-        <div class="pt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-black text-slate-700">
-          <div class="flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span>
-            <span>Zero Mess Guarantee</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs">⚡</span>
-            <span>1-Day Room Service</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs">🌿</span>
-            <span>Kid & Pet Safe Paints</span>
-          </div>
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-black">🌿</span>
+          <span>Kid & Pet Safe Paints</span>
         </div>
-
       </div>
 
     </div>
@@ -151,15 +155,18 @@
   <!-- ==========================================================================
        INTERACTIVE ROOM COLORIZER (SUPER FUN & SIMPLE)
        ========================================================================== -->
-  <section id="colorizer" class="py-12 sm:py-16 bg-slate-50 border-y border-slate-200">
+  <section id="colorizer" class="py-14 sm:py-20 bg-slate-50 border-y border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center mb-8 space-y-2">
-        <span class="text-xs font-black uppercase tracking-widest text-brand-coral">Interactive Feature</span>
-        <h2 class="font-heading text-2xl sm:text-3xl font-black text-slate-900">
+      <!-- Section Header -->
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-brand-coral bg-brand-coral/10 px-3 py-1 rounded-full">
+          Interactive Feature
+        </span>
+        <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
           Click A Color & Watch The Wall Paint!
         </h2>
-        <p class="text-xs sm:text-sm text-slate-500">
+        <p class="text-sm text-slate-500 leading-relaxed">
           Click any paint swatch to roll a fresh new color on the accent wall:
         </p>
       </div>
@@ -249,7 +256,7 @@
             </button>
 
             <!-- Custom Picker Input -->
-            <label class="px-3 py-2 rounded-xl border-2 border-slate-300 bg-slate-50 cursor-pointer flex items-center gap-1.5 text-xs font-bold hover:bg-slate-100">
+            <label class="px-3 py-2 rounded-xl border-2 border-slate-300 bg-slate-50 cursor-pointer flex items-center gap-1.5 text-xs font-bold hover:bg-slate-100 transition-colors">
               <i data-lucide="pipette" class="w-3.5 h-3.5 text-brand-purple"></i>
               <span>Custom:</span>
               <input type="color" id="custom-color-picker" value="#FF533D" class="w-6 h-6 rounded cursor-pointer border-0 p-0">
@@ -268,16 +275,22 @@
   <section id="services" class="py-16 sm:py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center mb-12 space-y-2">
-        <span class="text-xs font-black uppercase tracking-widest text-brand-purple">Simple Services</span>
-        <h2 class="font-heading text-2xl sm:text-3xl font-black text-slate-900">
+      <!-- Section Header -->
+      <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-brand-purple bg-purple-50 text-purple-700 px-3 py-1 rounded-full">
+          Simple Services
+        </span>
+        <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
           What We Do At Your Door
         </h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Clean, dependable, on-site painting and surface restoration.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Card 1 -->
+        <!-- Service 1 -->
         <div class="bg-slate-50 border-2 border-slate-200 rounded-3xl p-6 text-center space-y-3 hover:border-brand-coral transition-colors">
           <div class="w-12 h-12 rounded-2xl bg-brand-coral/10 text-brand-coral flex items-center justify-center mx-auto text-xl">
             🏠
@@ -288,7 +301,7 @@
           </p>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Service 2 -->
         <div class="bg-slate-50 border-2 border-slate-200 rounded-3xl p-6 text-center space-y-3 hover:border-brand-yellow transition-colors">
           <div class="w-12 h-12 rounded-2xl bg-brand-yellow/15 text-amber-700 flex items-center justify-center mx-auto text-xl">
             🚪
@@ -299,7 +312,7 @@
           </p>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Service 3 -->
         <div class="bg-slate-50 border-2 border-slate-200 rounded-3xl p-6 text-center space-y-3 hover:border-brand-cyan transition-colors">
           <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center mx-auto text-xl">
             🔨
@@ -316,74 +329,32 @@
   </section>
 
   <!-- ==========================================================================
-       BEFORE & AFTER: SIMPLE SLIDER
-       ========================================================================== -->
-  <section id="transformations" class="py-14 sm:py-18 bg-slate-900 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-8 space-y-2">
-        <span class="text-xs font-black uppercase tracking-widest text-brand-yellow">Visual Proof</span>
-        <h2 class="font-heading text-2xl sm:text-3xl font-black text-white">
-          Slide To See The Transformation
-        </h2>
-        <p class="text-xs text-slate-400">Drag the handle left or right:</p>
-      </div>
-
-      <!-- Slider Container -->
-      <div id="comparison-container" class="comparison-slider-wrapper aspect-[16/9] border-4 border-slate-700 relative cursor-ew-resize rounded-2xl shadow-2xl">
-        
-        <!-- After -->
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="After fresh painting" class="w-full h-full object-cover">
-        <div class="absolute bottom-3 right-3 bg-emerald-500 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase">
-          ✨ Fresh Paint
-        </div>
-
-        <!-- Before -->
-        <div id="comparison-before" class="comparison-before-img" style="width: 50%;">
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80" alt="Before paint" class="absolute top-0 left-0 max-w-none w-full h-full object-cover filter contrast-75 brightness-75 grayscale-[35%]">
-          <div class="absolute bottom-3 left-3 bg-slate-900 text-slate-300 text-[11px] font-black px-3 py-1 rounded-full uppercase border border-slate-700">
-            ⚠️ Scuffed & Faded
-          </div>
-        </div>
-
-        <!-- Handle -->
-        <div id="comparison-handle" class="comparison-handle" style="left: 50%;">
-          <div class="comparison-handle-knob">
-            <i data-lucide="move-horizontal" class="w-5 h-5"></i>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
        SIMPLE COST CALCULATOR
        ========================================================================== -->
-  <section id="estimator" class="py-16 sm:py-20 bg-white">
+  <section id="estimator" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
     <div class="max-w-2xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center mb-8 space-y-2">
-        <span class="text-xs font-black uppercase tracking-widest text-brand-green bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+      <!-- Section Header -->
+      <div class="text-center max-w-md mx-auto mb-10 space-y-2">
+        <span class="inline-block text-xs font-black uppercase tracking-widest text-brand-green bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
           Instant Price Check
         </span>
-        <h2 class="font-heading text-2xl sm:text-3xl font-black text-slate-900">
+        <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
           How Much Will It Cost?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-500">
+        <p class="text-sm text-slate-500 leading-relaxed">
           Slide your room square footage for an instant ballpark quote:
         </p>
       </div>
 
       <!-- Estimator Box -->
-      <div class="bg-slate-50 rounded-3xl border-2 border-slate-300 p-6 sm:p-8 space-y-6">
+      <div class="bg-white rounded-3xl border-2 border-slate-300 p-6 sm:p-8 space-y-6 shadow-sm">
         
         <!-- Slider -->
         <div class="space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-sm font-extrabold text-slate-800">Room Size:</span>
-            <span class="font-heading font-black text-lg text-brand-coral bg-white px-3 py-1 rounded-xl border border-slate-200">
+            <span class="font-heading font-black text-lg text-brand-coral bg-brand-coral/10 px-3 py-1 rounded-xl">
               <span id="calc-sqft-display">500</span> sq. ft.
             </span>
           </div>
@@ -425,7 +396,7 @@
        ========================================================================== -->
   <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-center space-y-4">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="flex items-center justify-center gap-2 mb-2">
+      <div class="flex items-center justify-center gap-2.5 mb-2">
         <div class="w-8 h-8 rounded-lg bg-brand-coral flex items-center justify-center text-white">
           <i data-lucide="paint-roller" class="w-4 h-4"></i>
         </div>
